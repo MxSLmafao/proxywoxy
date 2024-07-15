@@ -105,7 +105,9 @@
 
     searchButton.addEventListener('click', () => {
       const query = searchBar.value;
-      socket.emit('search', query);
+      if (query.trim() !== '') {
+        socket.emit('search', query);
+      }
     });
 
     searchBar.addEventListener('keypress', (event) => {
